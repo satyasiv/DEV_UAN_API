@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240626 05:40:24.412" rpa="false" schemaversion="4">
+<suite id="s1" name="Tasks" source="/home/buzzadmin/Documents/uan_credentials/robot_credentials/robot_credentials_app/tasks.robot">
+<test id="s1-t1" name="Automate EPFO Webpage" line="479">
+<kw name="Open EPF India Website">
+<kw name="Open Browser" library="RPA.Browser.Selenium">
+<arg>https://www.epfindia.gov.in/site_en/index.php#</arg>
+<arg>Chrome</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240626 05:40:24.697" level="INFO">Opening browser 'Chrome' to base url 'https://www.epfindia.gov.in/site_en/index.php#'.</msg>
+<status status="PASS" starttime="20240626 05:40:24.695" endtime="20240626 05:40:26.935"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>xpath://*[@id="ecr_panel_1"]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unbale to launch EPF website..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240626 05:40:26.936" endtime="20240626 05:40:26.957"/>
+</kw>
+<status status="PASS" starttime="20240626 05:40:24.695" endtime="20240626 05:40:26.957"/>
+</kw>
+<kw name="Click ECR/Returns/Payment Button">
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>xpath://*[@id="ecr_panel_1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240626 05:40:26.958" level="INFO">Clicking element 'xpath://*[@id="ecr_panel_1"]'.</msg>
+<status status="PASS" starttime="20240626 05:40:26.957" endtime="20240626 05:40:27.004"/>
+</kw>
+<kw name="Switch Window" library="RPA.Browser.Selenium">
+<arg>EPFO: Home</arg>
+<arg>timeout=30s</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<msg timestamp="20240626 05:40:28.435" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.114)
+Stacktrace:
+#0 0x5b9f7aed3c7a &lt;unknown&gt;
+#1 0x5b9f7abb6e2c &lt;unknown&gt;
+#2 0x5b9f7ab8c0d4 &lt;unknown&gt;
+#3 0x5b9f7ac2ea8d &lt;unknown&gt;
+#4 0x5b9f7ac44ca6 &lt;unknown&gt;
+#5 0x5b9f7ac26363 &lt;unknown&gt;
+#6 0x5b9f7abf6247 &lt;unknown&gt;
+#7 0x5b9f7abf6b9e &lt;unknown&gt;
+#8 0x5b9f7ae9a24b &lt;unknown&gt;
+#9 0x5b9f7ae9e2f1 &lt;unknown&gt;
+#10 0x5b9f7ae85afe &lt;unknown&gt;
+#11 0x5b9f7ae9ee52 &lt;unknown&gt;
+#12 0x5b9f7ae6a79f &lt;unknown&gt;
+#13 0x5b9f7aec3638 &lt;unknown&gt;
+#14 0x5b9f7aec3810 &lt;unknown&gt;
+#15 0x5b9f7aed2dac &lt;unknown&gt;
+#16 0x701777294ac3 &lt;unknown&gt;
+</msg>
+<msg timestamp="20240626 05:40:28.436" level="FAIL">TypeError: cannot unpack non-iterable NoneType object</msg>
+<status status="FAIL" starttime="20240626 05:40:27.004" endtime="20240626 05:40:28.437"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:28.437" endtime="20240626 05:40:28.437"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>xpath://*[@id="btnCloseModal"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= Unable to find Alert Popup..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:28.438" endtime="20240626 05:40:28.438"/>
+</kw>
+<status status="FAIL" starttime="20240626 05:40:26.957" endtime="20240626 05:40:28.438"/>
+</kw>
+<kw name="Accept Popup">
+<status status="NOT RUN" starttime="20240626 05:40:28.438" endtime="20240626 05:40:28.438"/>
+</kw>
+<kw name="Enter Username and Password">
+<status status="NOT RUN" starttime="20240626 05:40:28.438" endtime="20240626 05:40:28.438"/>
+</kw>
+<kw name="Click Signin Button">
+<status status="NOT RUN" starttime="20240626 05:40:28.438" endtime="20240626 05:40:28.438"/>
+</kw>
+<kw name="click register individual">
+<status status="NOT RUN" starttime="20240626 05:40:28.438" endtime="20240626 05:40:28.438"/>
+</kw>
+<status status="FAIL" starttime="20240626 05:40:24.694" endtime="20240626 05:40:28.438">TypeError: cannot unpack non-iterable NoneType object</status>
+</test>
+<test id="s1-t2" name="data" line="486">
+<kw name="Extract All Member Data">
+<arg>${validated_data}</arg>
+<arg>${uan_clean}</arg>
+<arg>${START_TIME}</arg>
+<try>
+<branch type="TRY">
+<kw name="Log" library="BuiltIn">
+<arg>${validated_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:28.439" level="INFO">[{"employee_id": 167584, "member_name": "ABISHEK PAUL", "gender": "Male", "father_husband_name": "GANESH PATH", "relationship_with_member": "Father", "nationality": "Indian", "marital_status": "Single", "aadhaar_number": "207810928397", "name_as_on_aadhaar": "ABISHEK PAUL", "date_of_birth": "30/08/2002", "date_of_joining": "26/06/2024", "Universal_Account": null, "wages_as_on_joining": 15000}]</msg>
+<status status="PASS" starttime="20240626 05:40:28.439" endtime="20240626 05:40:28.439"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${data_list}</var>
+<arg>json.loads($validated_data)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240626 05:40:28.440" level="INFO">${data_list} = [{'employee_id': 167584, 'member_name': 'ABISHEK PAUL', 'gender': 'Male', 'father_husband_name': 'GANESH PATH', 'relationship_with_member': 'Father', 'nationality': 'Indian', 'marital_status': 'Single...</msg>
+<status status="PASS" starttime="20240626 05:40:28.439" endtime="20240626 05:40:28.440"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${current_index}</var>
+<arg>${data_list}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20240626 05:40:28.440" level="INFO">Length is 1</msg>
+<msg timestamp="20240626 05:40:28.440" level="INFO">${current_index} = 1</msg>
+<status status="PASS" starttime="20240626 05:40:28.440" endtime="20240626 05:40:28.440"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${total_index}</var>
+<arg>${current_index}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240626 05:40:28.440" level="INFO">${total_index} = 1</msg>
+<status status="PASS" starttime="20240626 05:40:28.440" endtime="20240626 05:40:28.440"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${all_member_data}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20240626 05:40:28.440" level="INFO">${all_member_data} = []</msg>
+<status status="PASS" starttime="20240626 05:40:28.440" endtime="20240626 05:40:28.440"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${current_index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240626 05:40:28.440" level="INFO">${current_index} = 0</msg>
+<status status="PASS" starttime="20240626 05:40:28.440" endtime="20240626 05:40:28.440"/>
+</kw>
+<for flavor="IN">
+<var>${member_data}</var>
+<value>@{data_list}</value>
+<iter>
+<var name="${member_data}">{'employee_id': 167584, 'member_name': 'ABISHEK PAUL', 'gender': 'Male', 'father_husband_name': 'GANESH PATH', 'relationship_with_member': 'Father', 'nationality': 'Indian', 'marital_status': 'Single'...</var>
+<kw name="Log" library="BuiltIn">
+<arg>${member_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:28.440" level="INFO">{'employee_id': 167584, 'member_name': 'ABISHEK PAUL', 'gender': 'Male', 'father_husband_name': 'GANESH PATH', 'relationship_with_member': 'Father', 'nationality': 'Indian', 'marital_status': 'Single', 'aadhaar_number': '207810928397', 'name_as_on_aadhaar': 'ABISHEK PAUL', 'date_of_birth': '30/08/2002', 'date_of_joining': '26/06/2024', 'Universal_Account': None, 'wages_as_on_joining': 15000}</msg>
+<status status="PASS" starttime="20240626 05:40:28.440" endtime="20240626 05:40:28.440"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${member_info}</var>
+<arg>Member Name=${member_data['member_name']}</arg>
+<arg>Gender=${member_data['gender']}</arg>
+<arg>Father/Husband Name=${member_data['father_husband_name']}</arg>
+<arg>Relationship with Member=${member_data['relationship_with_member']}</arg>
+<arg>Nationality=${member_data['nationality']}</arg>
+<arg>Marital Status=${member_data['marital_status']}</arg>
+<arg>Aadhaar Number=${member_data['aadhaar_number']}</arg>
+<arg>Name as on Aadhaar=${member_data['name_as_on_aadhaar']}</arg>
+<arg>Date of Birth=${member_data['date_of_birth']}</arg>
+<arg>Date of Joining=${member_data['date_of_joining']}</arg>
+<arg>Universal_Account=${member_data['Universal_Account']}</arg>
+<arg>wages_as_on_joining=${member_data['wages_as_on_joining']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240626 05:40:28.446" level="INFO">${member_info} = {'Member Name': 'ABISHEK PAUL', 'Gender': 'Male', 'Father/Husband Name': 'GANESH PATH', 'Relationship with Member': 'Father', 'Nationality': 'Indian', 'Marital Status': 'Single', 'Aadhaar Number': '20...</msg>
+<status status="PASS" starttime="20240626 05:40:28.440" endtime="20240626 05:40:28.446"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${member_info}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:28.446" level="INFO">{'Member Name': 'ABISHEK PAUL', 'Gender': 'Male', 'Father/Husband Name': 'GANESH PATH', 'Relationship with Member': 'Father', 'Nationality': 'Indian', 'Marital Status': 'Single', 'Aadhaar Number': '207810928397', 'Name as on Aadhaar': 'ABISHEK PAUL', 'Date of Birth': '30/08/2002', 'Date of Joining': '26/06/2024', 'Universal_Account': None, 'wages_as_on_joining': 15000}</msg>
+<status status="PASS" starttime="20240626 05:40:28.446" endtime="20240626 05:40:28.446"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${uuid}</var>
+<arg>str(uuid.uuid4())</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240626 05:40:28.446" level="INFO">${uuid} = f0a58afd-a065-406f-984c-0ef6f2c0153c</msg>
+<status status="PASS" starttime="20240626 05:40:28.446" endtime="20240626 05:40:28.446"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Generated UUID:${uuid}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:28.447" level="INFO">Generated UUID:f0a58afd-a065-406f-984c-0ef6f2c0153c</msg>
+<status status="PASS" starttime="20240626 05:40:28.446" endtime="20240626 05:40:28.447"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<var>${condition}</var>
+<arg>Run Keyword If</arg>
+<arg>'${member_data['Universal_Account']}' != 'None'</arg>
+<arg>yes button process</arg>
+<arg>${uuid}</arg>
+<arg>${uan_clean}</arg>
+<arg>${member_data}</arg>
+<arg>${START_TIME}</arg>
+<arg>ELSE</arg>
+<arg>fill and submit form for every no_uan</arg>
+<arg>${member_data}</arg>
+<arg>${uuid}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${member_data['Universal_Account']}' != 'None'</arg>
+<arg>yes button process</arg>
+<arg>${uuid}</arg>
+<arg>${uan_clean}</arg>
+<arg>${member_data}</arg>
+<arg>${START_TIME}</arg>
+<arg>ELSE</arg>
+<arg>fill and submit form for every no_uan</arg>
+<arg>${member_data}</arg>
+<arg>${uuid}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="fill and submit form for every no_uan">
+<arg>${member_data}</arg>
+<arg>${uuid}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240626 05:40:30.448" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240626 05:40:28.448" endtime="20240626 05:40:30.448"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${employee_id}</var>
+<arg>${member_data['employee_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240626 05:40:30.449" level="INFO">${employee_id} = 167584</msg>
+<status status="PASS" starttime="20240626 05:40:30.448" endtime="20240626 05:40:30.449"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${employee_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:30.450" level="INFO">167584</msg>
+<status status="PASS" starttime="20240626 05:40:30.450" endtime="20240626 05:40:30.450"/>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<var>${START_TIME}</var>
+<arg>result_format=%H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20240626 05:40:30.450" level="INFO">${START_TIME} = 05:40:30</msg>
+<status status="PASS" starttime="20240626 05:40:30.450" endtime="20240626 05:40:30.450"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@id='memberName']</arg>
+<arg>timeout=30s</arg>
+<arg>error=memebername not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20240626 05:40:30.463" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.114)
+Stacktrace:
+#0 0x5b9f7aed3c7a &lt;unknown&gt;
+#1 0x5b9f7abb6e2c &lt;unknown&gt;
+#2 0x5b9f7ab8c0d4 &lt;unknown&gt;
+#3 0x5b9f7ac2ea8d &lt;unknown&gt;
+#4 0x5b9f7ac44ca6 &lt;unknown&gt;
+#5 0x5b9f7ac26363 &lt;unknown&gt;
+#6 0x5b9f7abf6247 &lt;unknown&gt;
+#7 0x5b9f7abf6b9e &lt;unknown&gt;
+#8 0x5b9f7ae9a24b &lt;unknown&gt;
+#9 0x5b9f7ae9e2f1 &lt;unknown&gt;
+#10 0x5b9f7ae85afe &lt;unknown&gt;
+#11 0x5b9f7ae9ee52 &lt;unknown&gt;
+#12 0x5b9f7ae6a79f &lt;unknown&gt;
+#13 0x5b9f7aec3638 &lt;unknown&gt;
+#14 0x5b9f7aec3810 &lt;unknown&gt;
+#15 0x5b9f7aed2dac &lt;unknown&gt;
+#16 0x701777294ac3 &lt;unknown&gt;
+</msg>
+<msg timestamp="20240626 05:40:30.463" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.114)
+Stacktrace:
+#0 0x5b9f7aed3c7a &lt;unknown&gt;
+#1 0x5b9f7abb6e2c &lt;unknown&gt;
+#2 0x5b9f7ab8c0d4 &lt;unknown&gt;
+#3 0x5b9f7ac2ea8d &lt;unknown&gt;
+#4 0x5b9f7ac44ca6 &lt;unknown&gt;
+#5 0x5b9f7ac26363 &lt;unknown&gt;
+#6 0x5b9f7abf6247 &lt;unknown&gt;
+#7 0x5b9f7abf6b9e &lt;unknown&gt;
+#8 0x5b9f7ae9a24b &lt;unknown&gt;
+#9 0x5b9f7ae9e2f1 &lt;unknown&gt;
+#10 0x5b9f7ae85afe &lt;unknown&gt;
+#11 0x5b9f7ae9ee52 &lt;unknown&gt;
+#12 0x5b9f7ae6a79f &lt;unknown&gt;
+#13 0x5b9f7aec3638 &lt;unknown&gt;
+#14 0x5b9f7aec3810 &lt;unknown&gt;
+#15 0x5b9f7aed2dac &lt;unknown&gt;
+#16 0x701777294ac3 &lt;unknown&gt;
+</msg>
+<status status="FAIL" starttime="20240626 05:40:30.450" endtime="20240626 05:40:30.464"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@id='memberName']</arg>
+<arg>${member_data['member_name']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${member_data['gender']}' == 'F' and '${member_data['marital_status']}' == 'Married'</arg>
+<arg>Click Element</arg>
+<arg>//select[@id="salutation"]/option[text()="Mrs."]</arg>
+<arg>ELSE IF</arg>
+<arg>'${member_data['gender']}' == 'F' and '${member_data['marital_status']}' == 'Unmarried'</arg>
+<arg>Click Element</arg>
+<arg>//select[@id="salutation"]/option[text()="Ms."]</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>//select[@id="salutation"]/option[text()="Mr."]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${gender}</var>
+<arg>${member_data['gender']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${uppercase}</var>
+<arg>${gender}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Get Substring" library="String">
+<var>${uppercase}</var>
+<arg>${gender}</arg>
+<arg>0</arg>
+<arg>1</arg>
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@type='radio'][@value='${uppercase}']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Execute Javascript" library="RPA.Browser.Selenium">
+<arg>document.querySelector("input[type='radio'][value='${uppercase}']").click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${date_without_time}</var>
+<arg>${member_data['date_of_birth']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${date_without_time}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.465" endtime="20240626 05:40:30.465"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@id='dob']</arg>
+<arg>timeout=30s</arg>
+<arg>error=dob not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@id='dob']</arg>
+<arg>${date_without_time}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${date}</var>
+<arg>${member_data['date_of_joining']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@id="doj"]</arg>
+<arg>timeout=30s</arg>
+<arg>error=doj not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@id="doj"]</arg>
+<arg>${date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@id="wages"]</arg>
+<arg>timeout=30s</arg>
+<arg>error=wages not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@id="wages"]</arg>
+<arg>${member_data['wages_as_on_joining']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Father's/Husband's Name}</var>
+<arg>${member_data['father_husband_name']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@id="fatherHusbandName"]</arg>
+<arg>timeout=30s</arg>
+<arg>error=father/husband not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@id="fatherHusbandName"]</arg>
+<arg>${Father's/Husband's Name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${Status}</var>
+<arg>Single=UnMarried</arg>
+<arg>None=UnMarried</arg>
+<arg>UnMarried=UnMarried</arg>
+<arg>Unmarried=UnMarried</arg>
+<arg>Married=Married</arg>
+<arg>married=Married</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${marital_status}</var>
+<arg>${member_data['marital_status']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${marital_status}</var>
+<arg>${Status}</arg>
+<arg>${marital_status}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.466"/>
+</kw>
+<kw name="Get Substring" library="String">
+<var>${first_letter}</var>
+<arg>${marital_status}</arg>
+<arg>0</arg>
+<arg>1</arg>
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.466" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${uppercase_first_letter}</var>
+<arg>${first_letter}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//select[@id="maritalStatus"]/option[@value='${uppercase_first_letter}']</arg>
+<arg>timeout=30s</arg>
+<arg>error=martialstatus not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>//select[@id="maritalStatus"]/option[@value='${uppercase_first_letter}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${uppercase_first_letter}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Relationship}</var>
+<arg>${member_data['relationship_with_member']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Get Substring" library="String">
+<var>${first}</var>
+<arg>${Relationship}</arg>
+<arg>0</arg>
+<arg>1</arg>
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${uppercase_first}</var>
+<arg>${first}</arg>
+<doc>Converts string to upper case.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//select[@id="relation"]/option[@value='${uppercase_first}']</arg>
+<arg>timeout=30s</arg>
+<arg>error=relationship not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>//select[@id="relation"]/option[@value='${uppercase_first}']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//input[@id="chkDocTypeId_1"]</arg>
+<arg>timeout=50s</arg>
+<arg>error= checkbox not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>//input[@id="chkDocTypeId_1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Document_number}</var>
+<arg>${member_data['aadhaar_number']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//*[@id="docNo1"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= number_as_per adhaar not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//*[@id="docNo1"]</arg>
+<arg>${Document_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Document_name}</var>
+<arg>${member_data['name_as_on_aadhaar']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.467" endtime="20240626 05:40:30.467"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//*[@id="nameOnDoc1"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= name_as_per adhaar not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//*[@id="nameOnDoc1"]</arg>
+<arg>${Document_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//*[@id="aadhaarConsentChkBox"]</arg>
+<arg>timeout=120s</arg>
+<arg>error=tickbox not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>//*[@id="aadhaarConsentChkBox"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//*[@id="memreg2"]/input</arg>
+<arg>timeout=120s</arg>
+<arg>error=savebutton not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>//*[@id="memreg2"]/input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Handle Alert" library="RPA.Browser.Selenium">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${element_exists}</var>
+<arg>Element Should Be Visible</arg>
+<arg>//div[@id="kycDetailsDiv"]/div/div[4]/div/div</arg>
+<arg>timeout=200s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${error_text}</var>
+<arg>${element_exists}</arg>
+<arg>Get Text</arg>
+<arg>//div[@id="kycDetailsDiv"]/div/div[4]/div/div</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${error_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${aadhaar}</var>
+<arg>${member_data['aadhaar_number']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${contains_colon}</var>
+<arg>Should Contain</arg>
+<arg>${error_text}</arg>
+<arg>:</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<if>
+<branch type="IF" condition="'${contains_colon}' == 'True'">
+<kw name="Split String" library="String">
+<var>${uan_num}</var>
+<arg>${error_text}</arg>
+<arg>separator=:</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${uan}</var>
+<arg>${uan_num}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.468"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${uan_clean}</var>
+<arg>${uan}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${uan_clean}</var>
+<arg>${uan_clean}</arg>
+<arg>${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${text}</var>
+<arg>${uan_num}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="yes button process">
+<arg>${uuid}</arg>
+<arg>${uan_clean}</arg>
+<arg>${member_data}</arg>
+<arg>${START_TIME}</arg>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.469"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" library="BuiltIn">
+<var>${aadhaar_number}</var>
+<arg>${aadhaar}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${name}</var>
+<arg>${member_data['member_name']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${uan_status}</var>
+<arg>None</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${uan_num}</var>
+<arg>None</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${remarks}</var>
+<arg>Errror:${error_text}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${employee_id}</var>
+<arg>${member_data['employee_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${entity_status}</var>
+<arg>creation pending</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<var>${END_TIME}</var>
+<arg>result_format=%H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Calculate Time Difference">
+<var>${SECONDS_ELAPSED}</var>
+<arg>${END_TIME}</arg>
+<arg>${START_TIME}</arg>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Total seconds elapsed: ${SECONDS_ELAPSED}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${time}</var>
+<arg>${SECONDS_ELAPSED}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Post User Data">
+<arg>${aadhaar_number}</arg>
+<arg>${name}</arg>
+<arg>${uan_status}</arg>
+<arg>${uan_num}</arg>
+<arg>${remarks}</arg>
+<arg>${entity_status}</arg>
+<arg>${uuid}</arg>
+<arg>${time}</arg>
+<arg>${employee_id}</arg>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Unselect Checkbox" library="RPA.Browser.Selenium">
+<arg>//*[@id="chkDocTypeId_1"]</arg>
+<doc>Removes the selection of checkbox identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.469"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//*[@id="chkDocTypeId_1"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= unslelect check box not found</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.470"/>
+</kw>
+<kw name="Unselect Checkbox" library="RPA.Browser.Selenium">
+<arg>//*[@id="chkDocTypeId_1"]</arg>
+<doc>Removes the selection of checkbox identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:30.470" endtime="20240626 05:40:30.470"/>
+</kw>
+<status status="NOT RUN" starttime="20240626 05:40:30.469" endtime="20240626 05:40:30.470"/>
+</branch>
+<status status="NOT RUN" starttime="20240626 05:40:30.468" endtime="20240626 05:40:30.470"/>
+</if>
+<status status="FAIL" starttime="20240626 05:40:28.447" endtime="20240626 05:40:30.470"/>
+</kw>
+<status status="FAIL" starttime="20240626 05:40:28.447" endtime="20240626 05:40:30.470"/>
+</kw>
+<msg timestamp="20240626 05:40:30.470" level="INFO">${condition} = None</msg>
+<status status="FAIL" starttime="20240626 05:40:28.447" endtime="20240626 05:40:30.470"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${employee_id}</var>
+<arg>${member_data['employee_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240626 05:40:30.470" level="INFO">${employee_id} = 167584</msg>
+<status status="PASS" starttime="20240626 05:40:30.470" endtime="20240626 05:40:30.470"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${employee_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:30.470" level="INFO">167584</msg>
+<status status="PASS" starttime="20240626 05:40:30.470" endtime="20240626 05:40:30.470"/>
+</kw>
+<status status="FAIL" starttime="20240626 05:40:28.440" endtime="20240626 05:40:30.470"/>
+</iter>
+<status status="FAIL" starttime="20240626 05:40:28.440" endtime="20240626 05:40:30.471"/>
+</for>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240626 05:40:32.471" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240626 05:40:30.471" endtime="20240626 05:40:32.471"/>
+</kw>
+<status status="FAIL" starttime="20240626 05:40:28.439" endtime="20240626 05:40:32.471"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Log" library="BuiltIn">
+<arg>${member_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240626 05:40:32.472" endtime="20240626 05:40:32.472"/>
+</kw>
+<status status="NOT RUN" starttime="20240626 05:40:32.472" endtime="20240626 05:40:32.472"/>
+</branch>
+<branch type="FINALLY">
+<kw name="Log" library="BuiltIn">
+<arg>${member_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:32.473" level="INFO">{'employee_id': 167584, 'member_name': 'ABISHEK PAUL', 'gender': 'Male', 'father_husband_name': 'GANESH PATH', 'relationship_with_member': 'Father', 'nationality': 'Indian', 'marital_status': 'Single', 'aadhaar_number': '207810928397', 'name_as_on_aadhaar': 'ABISHEK PAUL', 'date_of_birth': '30/08/2002', 'date_of_joining': '26/06/2024', 'Universal_Account': None, 'wages_as_on_joining': 15000}</msg>
+<status status="PASS" starttime="20240626 05:40:32.472" endtime="20240626 05:40:32.473"/>
+</kw>
+<kw name="send email">
+<arg>${member_data}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${member_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240626 05:40:32.474" level="INFO">{'employee_id': 167584, 'member_name': 'ABISHEK PAUL', 'gender': 'Male', 'father_husband_name': 'GANESH PATH', 'relationship_with_member': 'Father', 'nationality': 'Indian', 'marital_status': 'Single', 'aadhaar_number': '207810928397', 'name_as_on_aadhaar': 'ABISHEK PAUL', 'date_of_birth': '30/08/2002', 'date_of_joining': '26/06/2024', 'Universal_Account': None, 'wages_as_on_joining': 15000}</msg>
+<status status="PASS" starttime="20240626 05:40:32.474" endtime="20240626 05:40:32.474"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${email_body}</var>
+<arg>Hi, NOTE:this is the failed user_data "${member_data}" due to the reason .</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240626 05:40:32.475" level="INFO">${email_body} = Hi, NOTE:this is the failed user_data "{'employee_id': 167584, 'member_name': 'ABISHEK PAUL', 'gender': 'Male', 'father_husband_name': 'GANESH PATH', 'relationship_with_member': 'Father', 'nationality...</msg>
+<status status="PASS" starttime="20240626 05:40:32.474" endtime="20240626 05:40:32.475"/>
+</kw>
+<kw name="Authorize Smtp" library="RPA.Email.ImapSmtp">
+<arg>${EMAIL_USERNAME}</arg>
+<arg>${EMAIL_PASSWORD}</arg>
+<arg>${EMAIL_SERVER}</arg>
+<arg>${EMAIL_PORT}</arg>
+<doc>Authorize to SMTP server.</doc>
+<status status="PASS" starttime="20240626 05:40:32.475" endtime="20240626 05:40:34.272"/>
+</kw>
+<kw name="Send Message" library="RPA.Email.ImapSmtp">
+<arg>${EMAIL_SENDER}</arg>
+<arg>${TAGGED_EMAIL}</arg>
+<arg>${SUBJECT}</arg>
+<arg>${email_body}</arg>
+<doc>Send SMTP email</doc>
+<status status="PASS" starttime="20240626 05:40:34.272" endtime="20240626 05:40:35.988"/>
+</kw>
+<status status="PASS" starttime="20240626 05:40:32.473" endtime="20240626 05:40:35.988"/>
+</kw>
+<status status="PASS" starttime="20240626 05:40:32.472" endtime="20240626 05:40:35.988"/>
+</branch>
+<status status="FAIL" starttime="20240626 05:40:28.439" endtime="20240626 05:40:35.988"/>
+</try>
+<status status="FAIL" starttime="20240626 05:40:28.439" endtime="20240626 05:40:35.988"/>
+</kw>
+<status status="FAIL" starttime="20240626 05:40:28.438" endtime="20240626 05:40:35.988">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.114)
+Stacktrace:
+#0 0x5b9f7aed3c7a &lt;unknown&gt;
+#1 0x5b9f7abb6e2c &lt;unknown&gt;
+#2 0x5b9f7ab8c0d4 &lt;unknown&gt;
+#3 0x5b9f7ac2ea8d &lt;unknown&gt;
+#4 0x5b9f7ac44ca6 &lt;unknown&gt;
+#5 0x5b9f7ac26363 &lt;unknown&gt;
+#6 0x5b9f7abf6247 &lt;unknown&gt;
+#7 0x5b9f7abf6b9e &lt;unknown&gt;
+#8 0x5b9f7ae9a24b &lt;unknown&gt;
+#9 0x5b9f7ae9e2f1 &lt;unknown&gt;
+#10 0x5b9f7ae85afe &lt;unknown&gt;
+#11 0x5b9f7ae9ee52 &lt;unknown&gt;
+#12 0x5b9f7ae6a79f &lt;unknown&gt;
+#13 0x5b9f7aec3638 &lt;unknown&gt;
+#14 0x5b9f7aec3810 &lt;unknown&gt;
+#15 0x5b9f7aed2dac &lt;unknown&gt;
+#16 0x701777294ac3 &lt;unknown&gt;
+</status>
+</test>
+<status status="FAIL" starttime="20240626 05:40:24.412" endtime="20240626 05:40:35.989"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240626 05:40:28.435" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.114)
+Stacktrace:
+#0 0x5b9f7aed3c7a &lt;unknown&gt;
+#1 0x5b9f7abb6e2c &lt;unknown&gt;
+#2 0x5b9f7ab8c0d4 &lt;unknown&gt;
+#3 0x5b9f7ac2ea8d &lt;unknown&gt;
+#4 0x5b9f7ac44ca6 &lt;unknown&gt;
+#5 0x5b9f7ac26363 &lt;unknown&gt;
+#6 0x5b9f7abf6247 &lt;unknown&gt;
+#7 0x5b9f7abf6b9e &lt;unknown&gt;
+#8 0x5b9f7ae9a24b &lt;unknown&gt;
+#9 0x5b9f7ae9e2f1 &lt;unknown&gt;
+#10 0x5b9f7ae85afe &lt;unknown&gt;
+#11 0x5b9f7ae9ee52 &lt;unknown&gt;
+#12 0x5b9f7ae6a79f &lt;unknown&gt;
+#13 0x5b9f7aec3638 &lt;unknown&gt;
+#14 0x5b9f7aec3810 &lt;unknown&gt;
+#15 0x5b9f7aed2dac &lt;unknown&gt;
+#16 0x701777294ac3 &lt;unknown&gt;
+</msg>
+<msg timestamp="20240626 05:40:30.463" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.114)
+Stacktrace:
+#0 0x5b9f7aed3c7a &lt;unknown&gt;
+#1 0x5b9f7abb6e2c &lt;unknown&gt;
+#2 0x5b9f7ab8c0d4 &lt;unknown&gt;
+#3 0x5b9f7ac2ea8d &lt;unknown&gt;
+#4 0x5b9f7ac44ca6 &lt;unknown&gt;
+#5 0x5b9f7ac26363 &lt;unknown&gt;
+#6 0x5b9f7abf6247 &lt;unknown&gt;
+#7 0x5b9f7abf6b9e &lt;unknown&gt;
+#8 0x5b9f7ae9a24b &lt;unknown&gt;
+#9 0x5b9f7ae9e2f1 &lt;unknown&gt;
+#10 0x5b9f7ae85afe &lt;unknown&gt;
+#11 0x5b9f7ae9ee52 &lt;unknown&gt;
+#12 0x5b9f7ae6a79f &lt;unknown&gt;
+#13 0x5b9f7aec3638 &lt;unknown&gt;
+#14 0x5b9f7aec3810 &lt;unknown&gt;
+#15 0x5b9f7aed2dac &lt;unknown&gt;
+#16 0x701777294ac3 &lt;unknown&gt;
+</msg>
+</errors>
+</robot>

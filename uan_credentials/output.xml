@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240701 16:09:43.598" rpa="false" schemaversion="4">
+<suite id="s1" name="Tasks" source="/home/buzzadmin/Documents/uan_credentials/robot_credentials/robot_credentials_app/tasks.robot">
+<test id="s1-t1" name="Get User Data and Send via Email" line="574">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>${DB_HOST}</arg>
+<arg>${DB_USER}</arg>
+<arg>${DB_PASSWORD}</arg>
+<arg>${DB_NAME}</arg>
+<arg>${DB_PORT}</arg>
+<arg>${DB_TYPE}</arg>
+<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
+connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
+<msg timestamp="20240701 16:09:43.620" level="FAIL">ValueError: Argument 'dbPort' got value 'psycopg2' that cannot be converted to integer or None.</msg>
+<status status="FAIL" starttime="20240701 16:09:43.619" endtime="20240701 16:09:43.621"/>
+</kw>
+<kw name="Query" library="DatabaseLibrary">
+<var>${user_data}</var>
+<arg>SELECT * FROM ${TABLE_NAME}</arg>
+<doc>Runs a query with the ``selectStatement`` and returns the result as a list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="NOT RUN" starttime="20240701 16:09:43.621" endtime="20240701 16:09:43.621"/>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="NOT RUN" starttime="20240701 16:09:43.621" endtime="20240701 16:09:43.621"/>
+</kw>
+<kw name="Create File">
+<var>${attachment}</var>
+<arg>user_data.csv</arg>
+<status status="NOT RUN" starttime="20240701 16:09:43.622" endtime="20240701 16:09:43.622"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{user_data}</value>
+<iter>
+<var name="${row}"/>
+<kw name="Catenate" library="BuiltIn">
+<var>${line}</var>
+<arg>SEPARATOR=,</arg>
+<arg>${row}[0]</arg>
+<arg>${row}[1]</arg>
+<arg>...</arg>
+<arg>${row}[n]</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20240701 16:09:43.622" endtime="20240701 16:09:43.623"/>
+</kw>
+<kw name="Append To File">
+<arg>${attachment}</arg>
+<arg>${line}\n</arg>
+<status status="NOT RUN" starttime="20240701 16:09:43.623" endtime="20240701 16:09:43.623"/>
+</kw>
+<status status="NOT RUN" starttime="20240701 16:09:43.622" endtime="20240701 16:09:43.623"/>
+</iter>
+<status status="NOT RUN" starttime="20240701 16:09:43.622" endtime="20240701 16:09:43.623"/>
+</for>
+<kw name="Send Email">
+<arg>${EMAIL_USERNAME}</arg>
+<arg>${EMAIL_PASSWORD}</arg>
+<arg>${EMAIL_SERVER}</arg>
+<arg>${EMAIL_PORT}</arg>
+<arg>${EMAIL_SENDER}</arg>
+<arg>${EMAIL_RECIPIENT}</arg>
+<arg>${EMAIL_SUBJECT}</arg>
+<arg>${EMAIL_BODY}</arg>
+<arg>attachments=${attachment}</arg>
+<status status="NOT RUN" starttime="20240701 16:09:43.624" endtime="20240701 16:09:43.624"/>
+</kw>
+<status status="FAIL" starttime="20240701 16:09:43.619" endtime="20240701 16:09:43.624">ValueError: Argument 'dbPort' got value 'psycopg2' that cannot be converted to integer or None.</status>
+</test>
+<status status="FAIL" starttime="20240701 16:09:43.601" endtime="20240701 16:09:43.626"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240701 16:09:43.618" level="ERROR">Error in file '/home/buzzadmin/Documents/uan_credentials/robot_credentials/robot_credentials_app/tasks.robot' on line 553: Importing library 'EmailLibrary' failed: ModuleNotFoundError: No module named 'EmailLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /home/buzzadmin/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src/robotframework_debug_adapter
+  /home/buzzadmin/Documents/uan_credentials
+  /home/buzzadmin/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src
+  /home/buzzadmin/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src/robotframework_ls/vendored
+  /home/buzzadmin/.robocorp/holotree/bdc8e5a_b1f3c24_5f9ab826/lib/python310.zip
+  /home/buzzadmin/.robocorp/holotree/bdc8e5a_b1f3c24_5f9ab826/lib/python3.10
+  /home/buzzadmin/.robocorp/holotree/bdc8e5a_b1f3c24_5f9ab826/lib/python3.10/lib-dynload
+  /home/buzzadmin/.local/lib/python3.10/site-packages
+  /home/buzzadmin/.robocorp/holotree/bdc8e5a_b1f3c24_5f9ab826/lib/python3.10/site-packages</msg>
+</errors>
+</robot>
