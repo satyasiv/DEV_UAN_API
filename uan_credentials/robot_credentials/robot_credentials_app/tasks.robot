@@ -204,6 +204,28 @@ fill and submit form for every no_uan
             Log    ${error_text}
             ${entity_status}=   Set Variable   creation pending
             Log     ${START_TIME}
+            ${END_TIME}=    Get Current Date    result_format=%H:%M:%S
+            ${SECONDS_ELAPSED}=    Calculate Time Difference    ${END_TIME}    ${START_TIME}
+            Log    Total seconds elapsed: ${SECONDS_ELAPSED}
+            ${time}=   Set Variable     ${SECONDS_ELAPSED}
+            ${employee_id}=    Set Variable     ${member_data['employee_id']} 
+            ${aadhaar_number}=    Set Variable    ${member_data['aadhaar_number']} 
+            ${name} =     Set Variable    ${member_data['member_name']}
+            ${uan_num} =    Set Variable   ${uan}
+            ${remarks}=    Set Variable  Error:${error_text}
+            ${data}=    Create Dictionary    employee_id=${employee_id}     aadhaar_number=${aadhaar_number}    name=${name}   uan_status=${uan_status}    uan_num=${uan_num}    remarks=${remarks}     entity_status=${entity_status}    user_uuid=${uuid}    time=${time}
+            RPA.HTTP.Create Session    UserSession   ${BASE_URL} 
+            Log    ${data}
+            ${headers}=    Create Dictionary    Content-Type=application/json
+            Log    ${headers}
+            ${response}=    RPA.HTTP.POST On Session    UserSession    ${insert_user_data}    json=${data}    headers=${headers}
+            Log    ${response}
+            Sleep    5s
+
+
+
+
+
             Post User Data    ${uan_status}    ${uuid}    ${uan}    ${error_text}    ${member_data}    ${START_TIME}      
             #unselect the button 
             Wait Until Element Is Visible   //*[@id="chkDocTypeId_1"]       timeout=30s      error= unslelect check box
@@ -386,12 +408,12 @@ Post User Data            #database push data
     ${aadhaar_number}=    Set Variable    ${member_data['aadhaar_number']} 
     ${name} =     Set Variable    ${member_data['member_name']}
     ${uan_num} =    Set Variable   ${uan}
-    ${entity_status}=    Set Variable    approval pending
     IF    '${error_text}' == 'None'
         ${remarks}=    Set Variable   sucess
     ELSE
         ${remarks}=    Set Variable  Error:${error_text}
     END
+    ${entity_status}=   Set Variable  approval pending
     ${data}=    Create Dictionary    employee_id=${employee_id}     aadhaar_number=${aadhaar_number}    name=${name}   uan_status=${uan_status}    uan_num=${uan_num}    remarks=${remarks}     entity_status=${entity_status}    user_uuid=${uuid}    time=${time}
     RPA.HTTP.Create Session    UserSession   ${BASE_URL} 
     Log    ${data}
@@ -400,7 +422,6 @@ Post User Data            #database push data
     ${response}=    RPA.HTTP.POST On Session    UserSession    ${insert_user_data}    json=${data}    headers=${headers}
     Log    ${response}
     Sleep    5s
-
 
 Handle Alert And Click Radio Button
     [Arguments]    ${locator}                        #(yes/no)radian button purpose 
@@ -444,7 +465,7 @@ Extract All Member Data
                 Log     ${member_data} 
             FINALLY
                 Log     ${member_data}  
-                send email        ${member_data}    ${remarks}  
+                # send email        ${member_data}    ${remarks}  
             END     
         END
         Sleep    2s
